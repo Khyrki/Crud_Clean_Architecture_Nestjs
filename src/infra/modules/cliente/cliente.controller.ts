@@ -1,21 +1,27 @@
 import { Body, HttpStatus, Post, Version } from '@nestjs/common';
-import { Controller, Injectable } from '@nestjs/common/decorators';
+import { Controller, Inject, Injectable } from '@nestjs/common/decorators';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { CadastrarClienteUseCase } from 'src/application/cliente/useCases/cadastrar-cliente-use-case';
 import { CadastrarClienteDto } from 'src/domain/cliente/dtos/cadastrar-cliente.dto';
+import { CADASTRAR_CLIENTE_USE_CASE } from './providers/constants';
 import { CadastrarClienteResponseSwagger } from './swagger/criar-cliente-response';
 
 @Controller('cliente')
 @ApiTags('Cliente')
 @Injectable()
 export class ClienteController {
+  constructor(
+    @Inject(CADASTRAR_CLIENTE_USE_CASE)
+    private readonly cadastrarClienteUseCase: CadastrarClienteUseCase,
+  ) {}
+
   @Post()
   @Version('1')
   @ApiResponse({
     status: HttpStatus.CREATED,
     type: CadastrarClienteResponseSwagger,
   })
-  cadastrarCliente(@Body() data: CadastrarClienteDto) {
-    console.log(data);
-    return { message: 'Cliente criado com sucesso' };
+  async cadastrarCliente(@Body() data: CadastrarClienteDto) {
+    return await this.cadastrarClienteUseCase.execute(data);
   }
 }
