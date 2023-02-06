@@ -3,7 +3,7 @@ import { Controller, Inject, Injectable } from '@nestjs/common/decorators';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CadastrarClienteUseCase } from 'src/application/cliente/useCases/cadastrar-cliente-use-case';
 import { CadastrarClienteDto } from 'src/domain/cliente/dtos/cadastrar-cliente.dto';
-import { CADASTRAR_CLIENTE_USE_CASE } from './providers/constants';
+import { CADASTRAR_CLIENTE_USE_CASE } from './constants';
 import { CadastrarClienteResponseSwagger } from './swagger/criar-cliente-response';
 
 @Controller('cliente')
