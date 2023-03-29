@@ -9,7 +9,7 @@ export class CadastrarClienteResponseSwagger {
 
   @ApiProperty({
     type: String,
-    example: 'Fulado de Tal',
+    example: 'Fulano de Tal',
   })
   nome: string;
 

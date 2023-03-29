@@ -4,7 +4,7 @@ import { IsString, IsDefined, IsNumber } from 'class-validator';
 export class CadastrarClienteDto {
   @ApiProperty({
     type: String,
-    example: 'Fulado de Tal',
+    example: 'Fulano de Tal',
   })
   @IsString()
   @IsDefined()
