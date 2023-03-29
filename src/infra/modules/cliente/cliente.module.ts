@@ -6,12 +6,9 @@ import {
   clienteProviders,
   clienteProvidersExports,
 } from './providers/factories';
-import { ClienteEntityRepository } from './repositories/cliente-entity.repository';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([ClienteEntity, ClienteEntityRepository], 'mongo'),
-  ],
+  imports: [TypeOrmModule.forFeature([ClienteEntity], 'mongo')],
   controllers: [ClienteController],
   providers: clienteProviders,
   exports: clienteProvidersExports,

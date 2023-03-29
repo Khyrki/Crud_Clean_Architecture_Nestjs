@@ -6,8 +6,8 @@ export const mongoConfigEnviroments = (): IConfigEnviroment => {
   const envs = {
     MONGO_DB_HOST: null,
     MONGO_DB_PORT: null,
-    MONGO_DB_USER: null,
-    MONGO_DB_PASS: null,
+    // MONGO_DB_USER: null,
+    // MONGO_DB_PASS: null,
     MONGO_DB_NAME: null,
   };
 

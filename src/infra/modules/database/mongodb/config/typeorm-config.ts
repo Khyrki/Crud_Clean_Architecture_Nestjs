@@ -13,12 +13,6 @@ export class MongoTypeOrmConfig implements TypeOrmOptionsFactory {
     const password = this.configService.get('MONGO_DB_PASS');
     const database = this.configService.get('MONGO_DB_NAME');
 
-    console.log('host', host);
-    console.log('port', port);
-    console.log('username', username);
-    console.log('password', password);
-    console.log('database', database);
-
     return {
       name: 'mongo',
       type: 'mongodb',
